@@ -80,6 +80,7 @@ smartshop.receive_fields=function(player,pressed)
 			local pinv=player:get_inventory()
 			local pname=player:get_player_name()
 			if pressed["buy" .. n] then
+				if inv:get_stack("pay" .. n,1):get_count() == 0 then return end
 				local name=inv:get_stack("give" .. n,1):get_name()
 				local stack=name .." ".. inv:get_stack("give" .. n,1):get_count()
 				local pay=inv:get_stack("pay" .. n,1):get_name() .." ".. inv:get_stack("pay" .. n,1):get_count()
